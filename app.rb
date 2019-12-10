@@ -1,16 +1,18 @@
 require_relative 'config/environment'
 
 class App < Sinatra::Base
-  get '/reverse' do
-    erb :reverse
+  get "/" do
+    @user = "Ian"
+    erb :index # @user will be defined as 'Ian' in the view
   end
-
-  post '/reverse' do
-    erb :reversed
+   
+  get "/profile" do
+    erb :profile 
   end
 
   get '/friends' do
-    # Write your code here!
-
+    <@friends.each do |friend| %>
+      <h2><%= friend %></h2>
+    end
   end
 end
